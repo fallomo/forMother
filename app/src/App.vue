@@ -179,7 +179,7 @@ html{
 ----
 
 1998年8月4日，伴随着一声响亮的啼哭，我来到了这个世界。从那一刻起，我和您有了第一次相遇，生命的纽带从此紧紧相连～
- \`${getDateDiff((new Date()).getFullYear()+'-'+((new Date()).getMonth()+1)+'-'+(new Date()).getDate(),'1998-08-04') + 1}\` 天
+一起走过的 \`${getDateDiff((new Date()).getFullYear()+'-'+((new Date()).getMonth()+1)+'-'+(new Date()).getDate(),'1998-08-04') + 1}\` 个日夜。妈妈的爱与陪伴给了我动力和力量。
 ----
 
 时光流转，岁月沉浮，唯爱始终如初

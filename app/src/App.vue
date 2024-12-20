@@ -34,22 +34,26 @@ export default {
     name: 'app',
     components: {
         StyleEditor,
-        ResumeEditor
+        ResumeEditor,
     },
     data() {
         return {
-            interval: 27,
+            interval: 0,
             currentStyle: '',
             enableHtml: false,
             fullStyle: [
                 `/*
-* Hi。宝贝！
-* 这么久了。还没和宝贝说过我的工作呢！
+* Hi。亲爱的妈妈！
+* 生日快乐！～
+* 这么久了。我想送妈妈一份礼物！
+* 让妈妈更加了解我
+ 
 * 我是个前端工程师。俗称程序员。网页相关。
 * 如这个页面。就是个什么也没有的网页。
-* 我的工作就是给这种空白的页面加点儿东西。
+* 我的工作就是给让它们变得生动起来
 * 嗯。说起来手机和电脑还得区分一下。
 * 你现在用的是。。。${isPc ? '电脑' : '手机'}
+* 用 ${isPc ? '手机' : '电脑'} 也可以看呦
 */
 
 /* 首先给所有元素加上过渡效果 */
@@ -57,12 +61,12 @@ export default {
   -webkit-transition: all .3s;
   transition: all .3s;
 }
-/* 白色背景太单调了。来点背景 */
+/* 来点背景 */
 html {
   color: rgb(222,222,222);
   background: rgb(0,43,54); 
 }
-/* 文字太近了 */
+/* 让文字更加美观 */
 .styleEditor {
   padding: .5em;
   border: 1px solid;
@@ -85,7 +89,7 @@ html{
 }
 .styleEditor {
   position: fixed; 
-  ${ isPc ? 'left: 0;' : 'left:0;right:0;margin:auto;'}
+  ${ isPc ? 'left: 10;' : 'left:0;right:0;margin:auto;'}
   top: 0; 
   -webkit-transition: none; 
   transition: none;   
@@ -114,10 +118,7 @@ html{
 
 `,
                 `
-/* 是不是看着很简陋粗糙？
- * 因为这是 Markdown 格式的
- * 一种程序员用来写文档日志的简易语言
- * 翻译成 网页 就行了
+/* 是不是看着还很简陋粗糙？
  */
 `,
                 `
@@ -132,9 +133,7 @@ html{
   margin: 1em 0 .5em;
   font-size:18px;
 }
-.resumeEditor ul,.resumeEditor ol{
-  list-style: none;
-}
+
 .resumeEditor ul> li::before{
   content: '•';
   margin-right: .5em;
@@ -148,96 +147,52 @@ html{
   margin-right: .5em;
 }
 .resumeEditor blockquote {
-  margin: 1em;
-  padding: .5em;
-  background: rgba(221,221,221,.5);
+  color: red;
+  font-family: SimHei;
+  text-align: center;
+  font-size: 60px;
+  font-weight: bold;
+  background: rgba(244, 213, 12, 0.2);
+  animation: marquee 10s linear infinite;
 }
 
-/* OK。完成！ */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(-5%);
+  }
+  75% {
+    transform: translateX(5%);
+  100% {
+    transform: translate(00%);
+  }
+
+/* OK。完成！ (*“∀”)~♥ */
 
 `
             ],
             currentMarkdown: '',
-            fullMarkdown: `nostar × juanjuan
+            fullMarkdown: `亲爱的妈妈，生日快乐
 ----
 
-2016年08月05日。初初见面。两人齐齐心动。  
-2016年09月15日。即中秋节阴历八月十五。在一起。  
-已有 \`${getDateDiff((new Date()).getFullYear()+'-'+((new Date()).getMonth()+1)+'-'+(new Date()).getDate(),'2016-09-15') + 1}\` 天
-
-一起呲过的餐厅
+1998年8月4日，伴随着一声响亮的啼哭，我来到了这个世界。从那一刻起，我和您有了第一次相遇，生命的纽带从此紧紧相连～
+ \`${getDateDiff((new Date()).getFullYear()+'-'+((new Date()).getMonth()+1)+'-'+(new Date()).getDate(),'1998-08-04') + 1}\` 天
 ----
 
-* 昂吉拉姆西藏餐厅
-* 漫族餐厅
-* 鑫海汇海鲜烧烤
-* 老长沙罐子楼
-* 锅大侠火锅
-* 西湖春天
-* 天意
-* 曼玉
-* 王婆爱上虾
-* 十里洋场
-* 城墙根
-* 爱芳爱德
-* 阳光小店
-* 夜小红虾尾
-* 57°湘
-* 名厨味道
-* 老成都串串
-* 菜捕头
-* 知味观
-* 花港海航度假酒店
-* 冰城烧烤
-* ……
+时光流转，岁月沉浮，唯爱始终如初
 
-一起看过的电影
-----
+&nbsp;
 
-1. 七月与安生
-2. 从你的全世界路过
-3. 驴得水
-4. 深海浩劫
-5. 湄公河行动
-6. 你的名字。
-7. 速度与激情8
-8. 战狼2
-9. 敦刻尔克
-10. 正义联盟
-11. 极盗车神
-12. ……
-13. 流浪地球
-14. 飞驰人生
-15. 新喜剧之王
-16. 来电狂响
-17. 疯狂的外星人
-18. 熊出没之原始时代
-19. ……
+&nbsp;
 
-一起玩过的地方
-----
+&nbsp;
 
-* 登封少林寺
-* 洛阳
-* 圣王坪
-* 大临淇
-* 皇城相府
-* 杭州西湖
-* ……
+> 生日快乐～
 
-一起玩过的游戏
-----
-
-1. 炉石传说
-2. 塞尔达传说-荒野之息
-3. 魂斗罗归来
-4. 马里奥奥德赛
-5. 欢乐麻将
-6. overcooked
-7. ……
-
-> 【Screw the world×I have my dear Juanjuan】  
-> 喂。我不只想影响你的习惯。我还要去改变你的人生。！
+> I LOVE YOU
 
 `
         }
@@ -323,5 +278,6 @@ html {
 }
 .styleEditor {
     -webkit-backface-visibility: hidden;
+    /* color: rgba(244, 213, 12, 0.2) */
 }
 </style>

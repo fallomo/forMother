@@ -29,7 +29,7 @@ let getDateDiff = function(startDate, endDate) {
     var dates = Math.abs((startTime - endTime)) / (1000 * 60 * 60 * 24);
     return dates;
 }
-document.title += getDateDiff((new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1) + '-' + (new Date()).getDate(), '2016-09-15') + 1 + '天';
+// document.title += getDateDiff((new Date()).getFullYear() + '-' + ((new Date()).getMonth() + 1) + '-' + (new Date()).getDate(), '2016-09-15') + 1 + '天';
 export default {
     name: 'app',
     components: {
@@ -38,7 +38,7 @@ export default {
     },
     data() {
         return {
-            interval: 0,
+            interval: 40,
             currentStyle: '',
             enableHtml: false,
             fullStyle: [
@@ -153,7 +153,7 @@ html{
   font-size: 60px;
   font-weight: bold;
   background: rgba(244, 213, 12, 0.2);
-  animation: marquee 10s linear infinite;
+  animation: marquee 6s linear infinite;
 }
 
 
@@ -162,10 +162,10 @@ html{
     transform: translateX(0%);
   }
   25% {
-    transform: translateX(-5%);
+    transform: translateX(-3%);
   }
   75% {
-    transform: translateX(5%);
+    transform: translateX(3%);
   100% {
     transform: translate(00%);
   }
